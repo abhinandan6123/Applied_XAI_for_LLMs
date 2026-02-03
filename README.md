@@ -1,6 +1,10 @@
-# Applied_XAI_for_LLMs
-Applied study comparing explainability methods (IG, SHAP, Attention Rollout) on transformer-based NLP models.
+📄 **Paper**:  
+Applied Explainability for Large Language Models: A Comparative Study  
+(arXiv link will be added after submission)
 
+
+# Applied_XAI_for_LLMs
+An applied study comparing explainability methods (Integrated Gradients, SHAP, and Attention Rollout) on transformer-based NLP models.
 
 
 
@@ -8,8 +12,9 @@ Applied study comparing explainability methods (IG, SHAP, Attention Rollout) on 
 ---
 
 ## Overview
+This repository directly corresponds to the experiments and results reported in the accompanying research paper.
 
-This repository contains an applied research study on explainability techniques for transformer-based language models. The goal of this work is to evaluate how common explainability methods behave in practice, rather than proposing new algorithms.
+However, contains an applied research study on explainability techniques for transformer-based language models. The goal of this work is to evaluate how common explainability methods behave in practice, rather than proposing new algorithms.
 
 The project focuses on comparing Integrated Gradients, Attention Rollout, and SHAP on a fine-tuned DistilBERT model for sentiment analysis. The emphasis is on practical interpretability, stability, and usability in real-world NLP workflows.
 
