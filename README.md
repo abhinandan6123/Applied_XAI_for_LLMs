@@ -1,10 +1,17 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Status-Published-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white" />
+<img src="https://img.shields.io/badge/Status-Preprint-yellow?style=for-the-badge&logo=checkmarx&logoColor=white" />
 <img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19096514-blue?style=for-the-badge&logo=zenodo&logoColor=white" />
 <img src="https://img.shields.io/badge/Model-DistilBERT-orange?style=for-the-badge&logo=huggingface&logoColor=white" />
 <img src="https://img.shields.io/badge/Dataset-SST--2-purple?style=for-the-badge&logo=databricks&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+
+<br/>
+
+<a href="https://github.com/abhinandan6123/Applied_XAI_for_LLMs/stargazers">
+  <img src="https://img.shields.io/github/stars/abhinandan6123/Applied_XAI_for_LLMs?style=for-the-badge&logo=github&color=gold&logoColor=white" alt="GitHub Stars" />
+</a>
+<img src="https://img.shields.io/github/forks/abhinandan6123/Applied_XAI_for_LLMs?style=for-the-badge&logo=github&color=gray&logoColor=white" />
 
 <br/><br/>
 
@@ -20,7 +27,11 @@
 
 <br/>
 
-**📄 Research Paper** · **[DOI: 10.5281/zenodo.19096514](https://doi.org/10.5281/zenodo.19096514)** · **[Portfolio](https://abhikancharla.vercel.app)**
+**📄 Research Paper** · **[DOI: 10.5281/zenodo.19096514](https://doi.org/10.5281/zenodo.19096514)** · **[Portfolio](https://abhikancharla.vercel.app)** · **[LinkedIn](https://www.linkedin.com/in/venkata-abhinandan-kancharla)**
+
+<br/>
+
+> ⚠️ **Note:** This work is a **research preprint** and has **not been peer-reviewed**. Results reflect findings from a controlled applied study on DistilBERT + SST-2.
 
 <br/>
 
@@ -189,6 +200,52 @@ Output: Whole-sentence attribution → identified positive region
 │ (Kernel)        │ flexible framework     │ in transformer text settings │
 └─────────────────┴────────────────────────┴──────────────────────────────┘
 ```
+
+---
+
+## 📸 Result Screenshots
+
+> Figures reproduced from the published paper (pages 8–9). All outputs generated from the **same frozen DistilBERT checkpoint** for cross-method consistency.
+
+### Figure 1 — Integrated Gradients: Token Attribution (Positive Review)
+
+![Integrated Gradients Attribution](3_Plots/ig_attribution_positive.png)
+
+> *Sentiment-bearing words like **"wonderful"** (score ≈ 1.18) and **"engaging"** (score ≈ 0.52) receive the highest attribution scores. The method cleanly separates meaningful tokens from structural noise.*
+
+**What this tells us:** IG directly tracks gradient sensitivity through the model — tokens that most influence the positive classification are highlighted with high fidelity. Attribution scores are stable across repeated evaluations of semantically similar inputs.
+
+---
+
+### Figure 2 — Attention Rollout: CLS Token Attribution
+
+![Attention Rollout Attribution](3_Plots/attention_rollout_cls.png)
+
+> *The [CLS] token (score ≈ 0.32) and [SEP] token (score ≈ 0.26) dominate — structural artifacts, not sentiment signals. Sentiment words like **"wonderful"** and **"engaging"** receive comparatively low attention weight.*
+
+**What this tells us:** Attention Rollout propagates attention across all layers but inherits the architectural bias toward positional/special tokens. This confirms prior findings (Jain & Wallace, 2019) that attention ≠ explanation.
+
+---
+
+### Figure 3 — SHAP: Kernel Attribution Output
+
+![SHAP Attribution](3_Plots/shap_html_output.png)
+
+> *SHAP identifies the overall positive sentiment direction but produces noisy, less stable token-level attributions. Output value shown: **0.00004568** (base value) with the sentence scored as Output 1 (positive).*
+
+**What this tells us:** SHAP's model-agnostic design allows it to work without gradient access, but Kernel SHAP applied to transformers suffers from sensitivity to background data sampling — making routine use impractical without careful configuration.
+
+---
+
+### Side-by-Side Comparison
+
+| | Integrated Gradients | Attention Rollout | SHAP |
+|---|---|---|---|
+| **Top token** | "wonderful" (1.18) | [CLS] (0.32) | sentence-level |
+| **Sentiment aligned?** | ✅ Yes | ❌ No | ⚠️ Partial |
+| **Stable across runs?** | ✅ Yes | ⚠️ Moderate | ❌ Variable |
+| **Compute cost** | Medium | Very Low | High |
+| **Best use case** | Production debugging | Quick exploration | Model-agnostic audit |
 
 ---
 
@@ -363,6 +420,35 @@ XAI Methods for Transformers
 
 ---
 
+## 🎯 Why This Matters
+
+<table>
+<tr>
+<td width="33%" align="center">
+
+### 🎓 For MS Applicants
+This work demonstrates the full research lifecycle — from problem scoping and experimental design through implementation, analysis, and written publication. It reflects graduate-level rigour: reproducible setup, honest limitations, and practitioner-oriented conclusions grounded in existing literature.
+
+</td>
+<td width="33%" align="center">
+
+### 🏢 For FAANG / MNC Recruiters
+Applied ML explainability is a live production concern at scale. This study directly addresses the debugging, trust, and accountability challenges engineers face deploying transformers. The comparative framework maps cleanly to model validation pipelines, bias auditing, and responsible AI workflows.
+
+</td>
+<td width="33%" align="center">
+
+### 🔬 For Researchers
+A controlled, reproducible benchmark for three major XAI paradigms on a standard NLP task. Provides practical failure-case analysis and trade-off characterisation that complements theoretical XAI literature — useful as a starting baseline for extended studies.
+
+</td>
+</tr>
+</table>
+
+> **After this work:** Recruiters understand the research instantly. Professors see graduate-level execution. GitHub reads as research-grade, not course-project-grade.
+
+---
+
 ## 👤 Author
 
 <div align="center">
@@ -371,6 +457,7 @@ XAI Methods for Transformers
 NRI Institute of Technology  
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-abhikancharla.vercel.app-black?style=for-the-badge&logo=vercel&logoColor=white)](https://abhikancharla.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/venkata-abhinandan-kancharla)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0000--2464--313X-green?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0000-2464-313X)
 [![Email](https://img.shields.io/badge/Email-abhinri6123%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abhinri6123@gmail.com)
 
@@ -406,15 +493,14 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 **Intended for:** Academic study · ML Engineering · Applied NLP Research · Portfolio Demonstration
 
-*Not intended for production deployment without further validation.*
+> ⚠️ **Preprint Notice:** This is a research preprint. It has **not undergone formal peer review**. Findings should be interpreted within the scope described in Section 7 (Limitations).
 
 <br/>
 
-<img src="https://img.shields.io/github/stars/abhinandan6123/Applied_XAI_for_LLMs?style=social" />
-<img src="https://img.shields.io/github/forks/abhinandan6123/Applied_XAI_for_LLMs?style=social" />
-
-<br/><br/>
-
 *Built with rigor. Evaluated with honesty. Shared for the community.*
+
+<br/>
+
+⭐ **If this helped you — star the repo. It signals quality to recruiters and professors alike.**
 
 </div>
