@@ -420,34 +420,6 @@ XAI Methods for Transformers
 
 ---
 
-## 🎯 Why This Matters
-
-<table>
-<tr>
-<td width="33%" align="center">
-
-### 🎓 For MS Applicants
-This work demonstrates the full research lifecycle — from problem scoping and experimental design through implementation, analysis, and written publication. It reflects graduate-level rigour: reproducible setup, honest limitations, and practitioner-oriented conclusions grounded in existing literature.
-
-</td>
-<td width="33%" align="center">
-
-### 🏢 For FAANG / MNC Recruiters
-Applied ML explainability is a live production concern at scale. This study directly addresses the debugging, trust, and accountability challenges engineers face deploying transformers. The comparative framework maps cleanly to model validation pipelines, bias auditing, and responsible AI workflows.
-
-</td>
-<td width="33%" align="center">
-
-### 🔬 For Researchers
-A controlled, reproducible benchmark for three major XAI paradigms on a standard NLP task. Provides practical failure-case analysis and trade-off characterisation that complements theoretical XAI literature — useful as a starting baseline for extended studies.
-
-</td>
-</tr>
-</table>
-
-> **After this work:** Recruiters understand the research instantly. Professors see graduate-level execution. GitHub reads as research-grade, not course-project-grade.
-
----
 
 ## 👤 Author
 
