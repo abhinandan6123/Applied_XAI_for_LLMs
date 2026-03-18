@@ -269,7 +269,7 @@ Applied_XAI_for_LLMs/
 │   └── shap_html_output.html              # Figure 3: SHAP token attribution
 │
 │
-├── 📂 Research Paper/                           # End-to-end final research documentation
+├── 📂 Research Paper/                    # End-to-end final research documentation
 │
 ├── requirements.txt
 └── README.md
