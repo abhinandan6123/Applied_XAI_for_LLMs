@@ -261,21 +261,15 @@ Applied_XAI_for_LLMs/
 │   └── 04_shap_analysis.ipynb             # Kernel SHAP with HTML output
 │
 ├── 📂 2_Models/
-│   ├── saved_model/                       # Fine-tuned DistilBERT checkpoint
-│   └── tokenizer/                         # Saved tokenizer artifacts
+│   ├── tokenizer/                        # Saved tokenizer artifacts
 │
 ├── 📂 3_Plots/
 │   ├── ig_attribution_positive.png        # Figure 1: IG on positive review
 │   ├── attention_rollout_cls.png          # Figure 2: Rollout [CLS] focus
 │   └── shap_html_output.html              # Figure 3: SHAP token attribution
 │
-├── 📂 4_Research_Information/
-│   ├── section_notes/                     # Section-level research drafts
-│   └── experimental_log.md               # Observation log during runs
 │
-├── 📂 Reports/                            # Compiled paper drafts
 ├── 📂 Workflow/                           # End-to-end pipeline documentation
-├── 📂 References/                         # Annotated bibliography
 │
 ├── requirements.txt
 └── README.md
